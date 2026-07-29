@@ -137,7 +137,7 @@ func buildPass() ([]byte, error) {
 		OrganizationName:    "V-Thru",
 		SerialNumber:        "4",
 		Description:         "V-Thru",
-		AuthenticationToken: "vthru-pass-4",
+		AuthenticationToken: "vthru-passkit-token-2026",
 		WebServiceURL:       "https://passkit.hramos.dev",
 		Generic:             c,
 		Locations: []passkit.Location{
