@@ -64,7 +64,7 @@ func main() {
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("GET /pass/{serial}.pkpass", handleDownloadPass)
+	mux.HandleFunc("GET /pass/{serial}", handleDownloadPass)
 
 	mux.HandleFunc("POST /v1/devices/{deviceId}/registrations/{passTypeId}/{serial}", handleRegister)
 	mux.HandleFunc("DELETE /v1/devices/{deviceId}/registrations/{passTypeId}/{serial}", handleUnregister)
@@ -427,7 +427,7 @@ func handleCreatePass(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	downloadURL := fmt.Sprintf("https://passkit.hramos.dev/pass/%s.pkpass", p.Serial)
+	downloadURL := fmt.Sprintf("https://passkit.hramos.dev/pass/%s", p.Serial)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusCreated)
 	json.NewEncoder(w).Encode(map[string]string{
