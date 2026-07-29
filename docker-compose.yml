@@ -5,6 +5,13 @@ services:
       - "8080"
     environment:
       - DATABASE_URL=postgres://pkpass:pkpass@db:5432/pkpass?sslmode=disable
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.pkpass.rule=Host(`passkit.hramos.dev`)
+      - traefik.http.routers.pkpass.entrypoints=https
+      - traefik.http.routers.pkpass.tls=true
+      - traefik.http.routers.pkpass.tls.certresolver=letsencrypt
+      - traefik.http.services.pkpass.loadbalancer.server.port=8080
     depends_on:
       db:
         condition: service_healthy
