@@ -1,5 +1,7 @@
 github.com/alvinbaena/passkit v0.0.0-20260719115119-911416897b79 h1:pQytOQHtXFYydyCmpvAmdPGonpcTo7NcTSa1+IKmMqs=
 github.com/alvinbaena/passkit v0.0.0-20260719115119-911416897b79/go.mod h1:8Tzc8VASSTf9IA1RkeffrZwaPVpF02zuUJTE0WXNCQo=
+github.com/lib/pq v1.12.3 h1:tTWxr2YLKwIvK90ZXEw8GP7UFHtcbTtty8zsI+YjrfQ=
+github.com/lib/pq v1.12.3/go.mod h1:/p+8NSbOcwzAEI7wiMXFlgydTwcgTr3OSKMsD2BitpA=
 go.mozilla.org/pkcs7 v0.9.0 h1:yM4/HS9dYv7ri2biPtxt8ikvB37a980dg69/pKmS+eI=
 go.mozilla.org/pkcs7 v0.9.0/go.mod h1:SNgMg+EgDFwmvSmLRTNKC5fegJjB7v23qTQ0XLGUNHk=
 golang.org/x/crypto v0.54.0 h1:YLIA59K4fiNzHzjnZt2tUJQjQtUWfWbeHBqKtk3eScw=
