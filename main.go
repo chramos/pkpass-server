@@ -6,10 +6,10 @@ import (
 	"fmt"
 	"io"
 	"log"
-	"strings"
 	"net/http"
 	"os"
 	"strconv"
+	"strings"
 	"sync"
 	"time"
 
@@ -144,7 +144,7 @@ func buildPass() ([]byte, error) {
 		Key: "phone", Label: "PHONE", Value: "+965-97927277",
 	})
 	c.AddPrimaryFields(passkit.Field{
-		Key: "name", Label: "NAME", Value: "Abdullah\nAlshalabi",
+		Key: "name", Label: "NAME", Value: "Henrique\nRamos",
 	})
 	c.AddSecondaryFields(passkit.Field{
 		Key: "clubs", Label: "CLUBS", Value: "Universities Club • PRIME Club • Elite Club • Apple Club",
