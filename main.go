@@ -138,7 +138,7 @@ func buildPass() ([]byte, error) {
 		SerialNumber:        "4",
 		Description:         "V-Thru",
 		AuthenticationToken: "vthru-pass-4",
-		WebServiceURL:       "https://169.58.73.242",
+		WebServiceURL:       "https://passkit.hramos.dev",
 		Generic:             c,
 		Locations: []passkit.Location{
 			{
