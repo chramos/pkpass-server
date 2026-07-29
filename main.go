@@ -17,11 +17,12 @@ import (
 )
 
 const (
-	certsDir  = "certs"
-	passDir   = "pass.pass"
-	addr      = ":8080"
-	p12Pass   = "Abcd1234!!"
-	apnsTopic = "pass.com.vthru.mobile.stage"
+	certsDir   = "certs"
+	passDir    = "pass.pass"
+	addr       = ":8080"
+	p12Pass    = "Abcd1234!!"
+	apnsTopic  = "pass.com.vthru.mobile.stage"
+	devicesFile = "data/devices.json"
 )
 
 var (
@@ -48,6 +49,8 @@ func main() {
 	if err != nil {
 		log.Fatal("failed to create APNs client: ", err)
 	}
+
+	loadDevices()
 
 	mux := http.NewServeMux()
 
@@ -88,6 +91,23 @@ func newAPNsClient(p12Path, password string) (*http.Client, error) {
 		},
 		Timeout: 10 * time.Second,
 	}, nil
+}
+
+func loadDevices() {
+	os.MkdirAll("data", 0755)
+	data, err := os.ReadFile(devicesFile)
+	if err != nil {
+		return
+	}
+	mu.Lock()
+	defer mu.Unlock()
+	json.Unmarshal(data, &devices)
+	log.Printf("loaded %d devices from %s", len(devices), devicesFile)
+}
+
+func saveDevices() {
+	data, _ := json.MarshalIndent(devices, "", "  ")
+	os.WriteFile(devicesFile, data, 0644)
 }
 
 func sendPushToDevice(pushToken string) error {
@@ -223,6 +243,7 @@ func handleRegister(w http.ResponseWriter, r *http.Request) {
 	mu.Lock()
 	_, exists := devices[deviceId]
 	devices[deviceId] = body.PushToken
+	saveDevices()
 	mu.Unlock()
 
 	if exists {
@@ -238,6 +259,7 @@ func handleUnregister(w http.ResponseWriter, r *http.Request) {
 
 	mu.Lock()
 	delete(devices, deviceId)
+	saveDevices()
 	mu.Unlock()
 
 	w.WriteHeader(http.StatusOK)
