@@ -14,6 +14,7 @@ import (
 
 	"github.com/alvinbaena/passkit"
 	"golang.org/x/crypto/pkcs12"
+	"golang.org/x/net/http2"
 )
 
 const (
@@ -83,13 +84,14 @@ func newAPNsClient(p12Path, password string) (*http.Client, error) {
 		Certificate: [][]byte{cert.Raw},
 		PrivateKey:  privateKey,
 	}
-	return &http.Client{
-		Transport: &http.Transport{
-			TLSClientConfig: &tls.Config{
-				Certificates: []tls.Certificate{tlsCert},
-			},
+	transport := &http2.Transport{
+		TLSClientConfig: &tls.Config{
+			Certificates: []tls.Certificate{tlsCert},
 		},
-		Timeout: 10 * time.Second,
+	}
+	return &http.Client{
+		Transport: transport,
+		Timeout:   10 * time.Second,
 	}, nil
 }
 
