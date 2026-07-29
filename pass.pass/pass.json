@@ -1,0 +1,21 @@
+{
+  "description": "Example Pass generated through a cloudflare worker",
+  "serialNumber": "6ptsj7u8j5g",
+  "passTypeIdentifier": "pass.com.vthru.mobile.stage",
+  "teamIdentifier": "67G5HMJZ6R",
+  "organizationName": "V-Thru",
+  "logoText": "V-Thru ID",
+  "labelColor": "rgb(0, 177, 170)",
+  "foregroundColor": "rgb(255, 255, 255)",
+  "backgroundColor": "rgb(38, 50, 56)",
+  "formatVersion": 1,
+  "generic": {
+    "headerFields": [],
+    "primaryFields": [],
+    "secondaryFields": [],
+    "auxiliaryFields": [],
+    "backFields": [],
+    "additionalInfoFields": []
+  },
+  "barcodes": []
+}
