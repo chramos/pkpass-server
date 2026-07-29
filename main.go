@@ -370,6 +370,7 @@ func handleLatestPass(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/vnd.apple.pkpass")
+	w.Header().Set("Last-Modified", p.UpdatedAt.UTC().Format("Mon, 02 Jan 2006 15:04:05 GMT"))
 	w.Write(z)
 }
 
