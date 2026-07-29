@@ -17,11 +17,11 @@ import (
 )
 
 const (
-	certsDir   = "certs"
-	passDir    = "pass.pass"
-	addr       = ":8080"
-	p12Pass    = "Abcd1234!!"
-	apnsTopic  = "pass.com.vthru.mobile.stage"
+	certsDir    = "certs"
+	passDir     = "pass.pass"
+	addr        = ":8080"
+	p12Pass     = "Abcd1234!!"
+	apnsTopic   = "pass.com.vthru.mobile.stage"
 	devicesFile = "data/devices.json"
 )
 
@@ -141,7 +141,7 @@ func buildPass() ([]byte, error) {
 		Key: "phone", Label: "PHONE", Value: "+965-97927277",
 	})
 	c.AddPrimaryFields(passkit.Field{
-		Key: "name", Label: "NAME", Value: "Abdullah\nAlshalabi",
+		Key: "name", Label: "NAME", Value: "Henrique\nRamos",
 	})
 	c.AddSecondaryFields(passkit.Field{
 		Key: "clubs", Label: "CLUBS", Value: "Universities Club • PRIME Club • Elite Club • Apple Club",
