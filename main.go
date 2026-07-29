@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"log"
+	"strings"
 	"net/http"
 	"os"
 	"strconv"
@@ -115,7 +116,7 @@ func saveDevices() {
 func sendPushToDevice(pushToken string) error {
 	// ponytail: using production APNs; switch to api.sandbox.push.apple.com for dev certs
 	url := fmt.Sprintf("https://api.push.apple.com/3/device/%s", pushToken)
-	req, err := http.NewRequest("POST", url, nil)
+	req, err := http.NewRequest("POST", url, strings.NewReader("{}"))
 	if err != nil {
 		return err
 	}
