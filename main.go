@@ -141,7 +141,7 @@ func buildPass() ([]byte, error) {
 		Key: "phone", Label: "PHONE", Value: "+965-97927277",
 	})
 	c.AddPrimaryFields(passkit.Field{
-		Key: "name", Label: "NAME", Value: "Henrique\nRamos",
+		Key: "name", Label: "NAME", Value: "Abdullah\nAlshalabi",
 	})
 	c.AddSecondaryFields(passkit.Field{
 		Key: "clubs", Label: "CLUBS", Value: "Universities Club • PRIME Club • Elite Club • Apple Club",
