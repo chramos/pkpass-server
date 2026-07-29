@@ -275,7 +275,7 @@ func handleSerials(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	w.Header().Set("Content-Type", "application/json")
-	fmt.Fprintf(w, `{"lastUpdated":"%s","serialNumbers":["1234"]}`, lastUpdated)
+	fmt.Fprintf(w, `{"lastUpdated":"%s","serialNumbers":["4"]}`, lastUpdated)
 }
 
 func handleLatestPass(w http.ResponseWriter, r *http.Request) {
